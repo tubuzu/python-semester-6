@@ -1,0 +1,75 @@
+{% load static %} {% load humanize %}
+<style>
+    #uni_modal .modal-footer {
+        display: none
+    }
+
+    #uni_modal .modal-sub-footer {
+        display: flex
+    }
+
+    #book-img {
+        max-width: 100%;
+        max-height: 10em;
+        object-fit: scale-down;
+        object-position: center center
+    }
+
+    .view-label {
+        width: 30%;
+    }
+
+    .view-content {
+        width: 70%;
+    }
+</style>
+<div class="container-fluid" id="e-details">
+    <div class="">
+        <dl>
+            <div class="row">
+                <dt class="view-label">Category</dt>
+                <dd class="ps-4 view-content">{{book.sub_category.category}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Sub Category</dt>
+                <dd class="ps-4 view-content">{{book.sub_category.name}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">ISBN</dt>
+                <dd class="ps-4 view-content">{{book.isbn}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Title</dt>
+                <dd class="ps-4 view-content">{{book.title}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Description</dt>
+                <dd class="ps-4 view-content">{{book.description}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Author</dt>
+                <dd class="ps-4 view-content">{{book.author}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Publisher</dt>
+                <dd class="ps-4 view-content">{{book.publisher}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Date Published</dt>
+                <dd class="ps-4 view-content">{{book.date_published|date:"F d, Y h:i A"}}</dd>
+            </div>
+            <div class="row">
+                <dt class="view-label">Status</dt>
+                <dd class="ps-4 view-content">
+                    {% if book.status == '1' %}
+                    <span
+                        class="badge badge-success bg-gradient bg-success px-3 rounded-pill bg-opacity-75 text-sm py-1">Active</span>
+                    {% else %}
+                    <span
+                        class="badge badge-secondary bg-gradient bg-secondary px-3 rounded-pill bg-opacity-75 text-sm py-1">Inactive</span>
+                    {% endif %}
+                </dd>
+            </div>
+        </dl>
+    </div>
+</div>
